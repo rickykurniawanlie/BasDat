@@ -87,7 +87,7 @@ select {
         ?>
         </select>
         </td>
-        <td><input id="row_hargasatuan_` + i + `" onkeyup="calculate_total(` + i + `)" type="number" min="0" value="0" class="form-control mini" name="mprice[]"></td>
+        <td><input class="form-control" onkeyup="calculate_total(0)" id="harga0">
         <td>
         <select name="satuan1">
               <?php 
@@ -99,8 +99,12 @@ select {
             ?>
         </select>
         </td>
-        <td><input id="row_jumlah_` + i + `" onkeyup="calculate_total(` + i + `)" type="number" min="0" value="0" class="form-control mini" name="mqty[]"></td>
-		<td><input id="row_total_` + i + `" onkeyup="calculate_total(` + i + `)" type="number" min="0" value="0" class="form-control mini nodisable" disabled name="mtotal[]"></td>
+        <td>
+          <input class="form-control" onkeyup="calculate_total(0)" id="qty0">
+        </td>
+		<td>
+    <input class="form-control" id="total0" disabled>  
+    </td>
       </tr>
     </tbody>
   </table>
@@ -121,7 +125,7 @@ function tambahBahan() {
 
 
 function calculate_total(i) {
-		$('#row_total_' + i).val($('#row_hargasatuan_' + i).val() * $('#row_jumlah_' + i).val());
+		$('#total' + i).val($('#harga' + i).val() * $('#qty' + i).val());
 }
 
 </script>
